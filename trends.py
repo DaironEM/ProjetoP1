@@ -33,17 +33,18 @@ def make_tweet(text, time, lat, lon):
 def tweet_words(tweet):
     """Return a list of the words in the text of a tweet."""
     "*** YOUR CODE HERE ***"
+    listWords = tweet['text']
+    return extract_words(listWords)
 
 def tweet_time(tweet):
     """Return the datetime that represents when the tweet was posted."""
-    while i < len(tweet):
-        if len(tweet[i]) == 10:
-            return tweet[i] + tweet[i + 1]
-        i += 1
+    "*** YOUR CODE  HERE ***"
+    return tweet['time']
 
 def tweet_location(tweet):
     """Return a position (see geo.py) that represents the tweet's location."""
     "*** YOUR CODE HERE ***"
+    return make_position(tweet['latitude'],tweet['longitude'])
 
 def tweet_string(tweet):
     """Return a string representing the tweet."""
