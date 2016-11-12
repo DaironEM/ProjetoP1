@@ -34,11 +34,12 @@ def tweet_words(tweet):
     """Return a list of the words in the text of a tweet."""
     "*** YOUR CODE HERE ***"
     listWords = tweet['text']
-    return listWords.split()
+    return extract_words(listWords)
 
 def tweet_time(tweet):
     """Return the datetime that represents when the tweet was posted."""
-    "*** YOUR CODE HERE ***"
+    "*** YOUR CODE  HERE ***"
+
 
 def tweet_location(tweet):
     """Return a position (see geo.py) that represents the tweet's location."""
