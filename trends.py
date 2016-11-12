@@ -39,7 +39,7 @@ def tweet_words(tweet):
 def tweet_time(tweet):
     """Return the datetime that represents when the tweet was posted."""
     "*** YOUR CODE  HERE ***"
-
+    return tweet['time']
 
 def tweet_location(tweet):
     """Return a position (see geo.py) that represents the tweet's location."""
