@@ -33,6 +33,8 @@ def make_tweet(text, time, lat, lon):
 def tweet_words(tweet):
     """Return a list of the words in the text of a tweet."""
     "*** YOUR CODE HERE ***"
+    listWords = tweet['text']
+    return listWords.split()
 
 def tweet_time(tweet):
     """Return the datetime that represents when the tweet was posted."""
@@ -358,4 +360,3 @@ def run(*args):
     for name, execute in args.__dict__.items():
         if name != 'text' and execute:
             globals()[name](' '.join(args.text))
-
