@@ -7,7 +7,7 @@ from geo import us_states, geo_distance, make_position, longitude, latitude
 from maps import draw_state, draw_name, draw_dot, wait, message
 from string import ascii_letters
 from ucb import main, trace, interact, log_current_line
-
+import string
 
 # Phase 1: The Feelings in Tweets
 
@@ -63,7 +63,13 @@ def extract_words(text):
     ['paperclips', 'they', 're', 'so', 'awesome', 'cool', 'useful']
     """
     "*** YOUR CODE HERE ***"
-    return text.split()  # Replace
+    words = ""
+    for caracter in text:
+        if caracter in string.ascii_letters:
+            words += caracter
+        else:
+            words += " "
+    return words.split()
 
 def make_sentiment(value):
     """Return a sentiment, which represents a value that may not exist.
