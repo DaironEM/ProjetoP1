@@ -134,7 +134,16 @@ def analyze_tweet_sentiment(tweet):
     """
     average = make_sentiment(None)
     "*** YOUR CODE HERE ***"
-    return average
+    words = tweet_words(tweet)
+    number_of_sentiments = 0
+    sum_sentiments = 0.0
+    for word in words:
+        if has_sentiment(get_word_sentiment(word)) == True:
+            number_of_sentiments += 1
+            sum_sentiments += sentiment_value(get_word_sentiment(word))
+    if number_of_sentiments == 0:
+        return average
+    return (sum_sentiments/number_of_sentiments)
 
 
 # Phase 2: The Geometry of Maps
