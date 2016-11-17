@@ -210,6 +210,20 @@ def find_center(polygons):
     -156.21763
     """
     "*** YOUR CODE HERE ***"
+    lista_centroids = []
+    for polygon in polygons:
+        lista_centroids += [find_centroid(polygon)]
+    somatorio_produto_lat = 0
+    somatorio_produto_lon = 0
+    somatorio_area = 0
+    for centroid in lista_centroids:
+        somatorio_produto_lat += centroid[0]*centroid[2]
+        somatorio_produto_lon += centroid[1]*centroid[2]
+        somatorio_area += centroid[2]
+    center_lat = somatorio_produto_lat/somatorio_area
+    center_lon = somatorio_produto_lon/somatorio_area
+    position = make_position(center_lat,center_lon)
+    return position
 
 
 # Phase 3: The Mood of the Nation
