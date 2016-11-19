@@ -283,7 +283,7 @@ def group_tweets_by_state(tweets):
         tweets_by_state[key] = []
     for tweet in tweets:
         state = find_closest_state(tweet, us_centers)
-        tweets_by_state[state] += tweet_string(tweet)
+        tweets_by_state[state] += [tweet]
     return tweets_by_state
 
 def most_talkative_state(term):
