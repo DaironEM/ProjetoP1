@@ -296,6 +296,17 @@ def most_talkative_state(term):
     """
     tweets = load_tweets(make_tweet, term)  # A list of tweets containing term
     "*** YOUR CODE HERE ***"
+    tweets_per_state = group_tweets_by_state(tweets)
+    list_occurrences_states = []
+    for key, value in tweets_per_state.items():
+        list_occurrences_states += [[len(value),key]]
+    ocurrences = list_occurrences_states[0][0]
+    state = list_occurrences_states[0][1]
+    for ocurrences_states in list_occurrences_states:
+        if ocurrences < ocurrences_states[0]:
+            ocurrences = ocurrences_states[0]
+            state = ocurrences_states[1]
+    return state
 
 def average_sentiments(tweets_by_state):
     """Calculate the average sentiment of the states by averaging over all
@@ -311,6 +322,15 @@ def average_sentiments(tweets_by_state):
     """
     averaged_state_sentiments = {}
     "*** YOUR CODE HERE ***"
+    for key, value in tweets_by_state.items():
+        number_of_sentiments = 0
+        sum_sentiments = 0
+        for tweet in value:
+            if analyze_tweet_sentiment(tweet) != None:
+                number_of_sentiments += 1
+                sum_sentiments += analyze_tweet_sentiment(tweet)
+        if number_of_sentiments > 0:
+            averaged_state_sentiments[key] = (sum_sentiments/number_of_sentiments)
     return averaged_state_sentiments
 
 
@@ -332,6 +352,13 @@ def group_tweets_by_hour(tweets):
     """
     tweets_by_hour = {}
     "*** YOUR CODE HERE ***"
+    range_hours = range(24)
+    for hour in range_hours:
+        tweets_by_hour[hour] = []
+    for tweet in tweets:
+        time = tweet_time(tweet)
+        hour = time.hour
+        tweets_by_hour[hour] += [tweet]
     return tweets_by_hour
 
 
